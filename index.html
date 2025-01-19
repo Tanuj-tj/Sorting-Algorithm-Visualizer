@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Visualizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <div class="container">
+        <header class="header">
+            <h1>Sorting Algorithm Visualizer</h1>
+            <p class="subtitle">Visualize and understand sorting algorithms</p>
+        </header>
+
+        <div class="main-grid">
+            <!-- Left Panel: Controls and Visualization -->
+            <div class="visualization-panel">
+                <!-- Primary Controls -->
+                <div class="control-section">
+                    <div class="control-row">
+                        <div class="select-wrapper">
+                            <label for="algorithm">Algorithm:</label>
+                            <select id="algorithm" class="select-input">
+                                <option value="bubble">Bubble Sort</option>
+                                <option value="selection">Selection Sort</option>
+                                <option value="insertion">Insertion Sort</option>
+                                <option value="quick">Quick Sort</option>
+                                <option value="merge">Merge Sort</option>
+                            </select>
+                        </div>
+                        <div class="button-group">
+                            <button id="startBtn" class="primary-btn">Start Sort</button>
+                            <button id="resetBtn" class="secondary-btn">Reset Array</button>
+                        </div>
+                    </div>
+                    <div class="control-row">
+                        <div class="range-control">
+                            <label for="speed">Speed:</label>
+                            <input type="range" id="speed" min="1" max="100" value="50">
+                        </div>
+                        <div class="range-control">
+                            <label for="size">Array Size:</label>
+                            <input type="range" id="size" min="5" max="50" value="20">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Array Container -->
+                <div id="array-container" class="array-container"></div>
+
+                <!-- Array Controls -->
+                <div class="array-controls">
+                    <div class="control-group">
+                        <h3>Animation Controls</h3>
+                        <div class="button-row">
+                            <button id="pauseBtn" class="control-btn">Pause</button>
+                            <button id="stepBtn" class="control-btn" disabled>Step</button>
+                            <button id="skipBtn" class="control-btn">Skip</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <h3>Array Options</h3>
+                        <div class="button-row">
+                            <button id="customArrayBtn" class="control-btn">Custom</button>
+                            <button id="reversedArrayBtn" class="control-btn">Reversed</button>
+                            <button id="nearlySortedBtn" class="control-btn">Nearly Sorted</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status Section -->
+                <div class="status-section">
+                    <div class="status-item">
+                        <span id="stepCount">Step: 0</span>
+                    </div>
+                    <div class="status-item">
+                        <span id="comparisons">Comparisons: 0</span>
+                    </div>
+                    <div class="status-item">
+                        <span id="currentStep">Waiting to start...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Algorithm Info and Code -->
+            <div class="info-panel">
+                <!-- Algorithm Information -->
+                <div class="info-section">
+                    <h2>Algorithm Details</h2>
+                    <div class="explanation-box">
+                        <p id="algorithmExplanation"></p>
+                    </div>
+                    <div class="complexity-grid">
+                        <div class="complexity-item">
+                            <span>Best Case:</span>
+                            <span id="bestCase" class="complexity-value">-</span>
+                        </div>
+                        <div class="complexity-item">
+                            <span>Average Case:</span>
+                            <span id="avgCase" class="complexity-value">-</span>
+                        </div>
+                        <div class="complexity-item">
+                            <span>Worst Case:</span>
+                            <span id="worstCase" class="complexity-value">-</span>
+                        </div>
+                        <div class="complexity-item">
+                            <span>Space:</span>
+                            <span id="spaceComplexity" class="complexity-value">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Section -->
+                <div class="code-section">
+                    <div class="code-header">
+                        <h3>Implementation</h3>
+                        <select id="language" class="language-select">
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="cpp">C++</option>
+                            <option value="rust">Rust</option>
+                        </select>
+                    </div>
+                    <pre id="codeDisplay" class="code-display"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="customArrayModal" class="modal">
+        <div class="modal-content">
+            <h3>Enter Custom Array</h3>
+            <p>Enter numbers separated by commas (e.g., 5,2,8,1,9)</p>
+            <input type="text" id="customArrayInput" placeholder="5,2,8,1,9">
+            <div class="modal-buttons">
+                <button id="confirmCustomArray" class="primary-btn">Confirm</button>
+                <button id="cancelCustomArray" class="secondary-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
